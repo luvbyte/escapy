@@ -1,0 +1,46 @@
+{
+  "title": "Waifu Pics",
+  "author": "luvbyte",
+  "about": "Download waifu images",
+
+  "options": {
+    "category": {
+      "type": "select",
+      "label": "Category",
+      "info": "Image category",
+      "value": "waifu",
+      "options": {
+        "Waifu": "waifu",
+        "Neko": "neko",
+        "Shinobu": "shinobu",
+        "Megumin": "megumin",
+        "Bully": "bully",
+        "Cuddle": "cuddle",
+        "Hug": "hug"
+      },
+      "prefix": "--category"
+    },
+    "limit": {
+      "type": "number",
+      "label": "Image Count",
+      "info": "How many images to download",
+      "value": 1,
+      "min": 1,
+      "max": 20,
+      "step": 1,
+
+      "prefix": "--limit"
+    },
+    "verbose": {
+      "type": "flag",
+      "label": "Verbose",
+      "info": "Enable verbose output",
+      "value": true,
+      "prefix": "--verbose"
+    }
+  },
+
+  "run": {
+    "command": "python -u ./main.py {nsfw} {category} {limit} {verbose}"
+  }
+}

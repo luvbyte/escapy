@@ -1,0 +1,17 @@
+{
+  "title": "Greet",
+  "author": "luvbyte",
+  "about": "Module to greet",
+
+  "options": {
+    "name": {
+      "label": "Name",
+      "type": "input",
+      "required": true
+    }
+  },
+
+  "run": {
+    "command": "echo Hello, {name}"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Test",
+  "author": "luvbyte",
+  "about": "Test",
+
+  "run": {
+    "command": "python -u ./main.py",
+    "message": {
+      "fallback": "ignore"
+    }
+  }
+}

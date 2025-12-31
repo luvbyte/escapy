@@ -1,0 +1,79 @@
+{
+  "title": "Nmap",
+  "author": "luvbyte",
+  "about": "Nmap Scan",
+
+  "options": {
+    "target": {
+      "label": "Target",
+      "type": "input",
+      "value": "localhost",
+      "required": true
+    },
+    "ports": {
+      "label": "Ports",
+      "type": "input",
+      "value": "",
+      "placeholder": "e.g. 22,80,443 or 1-1000"
+    },
+    "scan_type": {
+      "label": "Scan Type",
+      "type": "select",
+      "value": "",
+      "options": {
+        "SYN Scan": "-sS",
+        "TCP Connect": "-sT",
+        "UDP Scan": "-sU",
+        "Ping Scan": "-sn"
+      }
+    },
+    "service_detection": {
+      "label": "Service Version Detection",
+      "type": "flag",
+      "value": true,
+      "prefix": "-sV"
+    },
+    "os_detection": {
+      "label": "OS Detection",
+      "type": "flag",
+      "value": false,
+      "prefix": "-O"
+    },
+    "timing": {
+      "label": "Timing Template",
+      "type": "select",
+      "value": "",
+      "options": {
+        "Paranoid (T0)": "-T0",
+        "Sneaky (T1)": "-T1",
+        "Polite (T2)": "-T2",
+        "Normal (T3)": "-T3",
+        "Aggressive (T4)": "-T4",
+        "Insane (T5)": "-T5"
+      }
+    },
+    "scripts": {
+      "label": "NSE Scripts",
+      "type": "input",
+      "value": "",
+      "prefix": "--script",
+      "placeholder": "e.g. default,vuln,auth"
+    },
+    "skip_discovery": {
+      "label": "Skip Host Discovery",
+      "type": "flag",
+      "value": false,
+      "prefix": "-Pn"
+    },
+    "verbosity": {
+      "label": "Verbose Output",
+      "type": "flag",
+      "value": false,
+      "prefix": "-v"
+    }
+  },
+
+  "run": {
+    "command": "nmap {scan_type} {ports} {service_detection} {os_detection} {timing} {scripts} {skip_discovery} {verbosity} {target}"
+  }
+}

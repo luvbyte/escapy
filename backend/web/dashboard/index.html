@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Dashboard</title>
+
+    <!-- Tailwind Browser Build -->
+    <script src="/static/cdn/tailwind-3.js"></script>
+    <!-- JQuery-->
+    <script src="/static/cdn/jquery.min.js"></script>
+    <!-- DOMPurify-->
+    <script src="/static/cdn/purify.min.js"></script>
+
+    <style>
+      .scrollbar-hide {
+        overflow: auto; /* or scroll */
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE & Edge (legacy) */
+      }
+
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="h-dvh flex flex-col bg-slate-800 text-white">
+      <!-- Status Bar -->
+      <header
+        id="status"
+        class="sticky top-0 z-20 flex items-center gap-3 border-b border-white/10 bg-slate-900/70 backdrop-blur-md p-2 text-sm shadow-sm"
+      >
+        <span
+          id="status-text"
+          class="flex items-center gap-2 font-medium text-slate-300 capitalize"
+        >
+          <span class="h-2 w-2 rounded-full bg-yellow-400 animate-pulse"></span>
+          Connecting
+        </span>
+
+        <span class="text-white/20">|</span>
+
+        <div class="flex items-center gap-2 overflow-x-auto scrollbar-hide">
+          <span
+            id="status-task-name"
+            class="whitespace-nowrap rounded-md bg-blue-500/10 px-2 py-0.5 text-blue-400"
+          >
+            ...
+          </span>
+          <span
+            id="status-task-module"
+            class="whitespace-nowrap rounded-md bg-green-500/10 px-2 py-0.5 text-green-400"
+          >
+            ...
+          </span>
+
+          <span
+            id="status-task-status"
+            class="whitespace-nowrap rounded-md bg-purple-500/10 px-2 py-0.5 text-gray-400"
+          >
+            ...
+          </span>
+
+          <span
+            id="status-task-created_at"
+            class="whitespace-nowrap rounded-md bg-purple-500/10 px-2 py-0.5 text-purple-400"
+          >
+            ...
+          </span>
+
+          <span
+            id="status-task-id"
+            class="whitespace-nowrap rounded-md bg-pink-500/10 px-2 py-0.5 text-pink-400"
+          >
+            ...
+          </span>
+        </div>
+      </header>
+
+      <!-- Console -->
+      <pre
+        id="console"
+        class="flex-1 p-2 font-mono text-xs leading-relaxed whitespace-pre-wrap overflow-y-auto"
+      ></pre>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
