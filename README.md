@@ -5,12 +5,7 @@ It provides a structured way to define modules, execute tasks, and interact with
 
 ### NOTE: This project still under development
 
-![Screenshot](docs/images/ss1.jpg)
-![Screenshot](docs/images/ss2.jpg)
-![Screenshot](docs/images/ss3.jpg)
-![Screenshot](docs/images/ss4.jpg)
-![Screenshot](docs/images/ss5.jpg)
-![Screenshot](docs/images/ss6.jpg)
+![Screenshot](docs/images/ss.jpg)
 
 ---
 🔧 Installation (Development)
