@@ -2,7 +2,7 @@ import axios from "axios";
 const { protocol, hostname, port } = window.location;
 
 // Default Theme
-export const DEFAULT_THEME = "dracula";
+export const DEFAULT_THEME = "retro";
 
 // will set in .env later
 const DEV = true;
@@ -64,3 +64,13 @@ export function handleError(error) {
 
   throw new Error(message);
 }
+
+export function getTheme() {
+  return localStorage.getItem("escapy-theme") || DEFAULT_THEME;
+}
+
+// Apply theme to #main
+export const applyTheme = theme => {
+  localStorage.setItem("escapy-theme", theme);
+  document.getElementById("main")?.setAttribute("data-theme", theme);
+};

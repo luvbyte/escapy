@@ -24,7 +24,7 @@ ___________ _________
           <div
             v-for="theme in themes"
             :data-theme="theme"
-            @click="applyTheme(theme)"
+            @click="setTheme(theme)"
             class="w-12 h-12 shrink-0 rounded-full base-border flex items-center justify-center gap-1 p-1 active:border-base-content"
           >
             <div class="w-1 h-4 bg-primary rounded"></div>
@@ -57,19 +57,19 @@ ___________ _________
       </div>
 
       <!-- footer -->
-      <pre class="flex justify-center items-center">
-  
-˚∧＿∧ 　+　　—̳͟͞͞💗
-( •‿• )つ —̳͟͞͞ 💗　　 —̳͟͞͞💗 +
-(つ　 <　　　　—̳͟͞͞💗
-｜　 _つ　 + —̳͟͞͞💗　　 —̳͟͞͞💗 ˚
-`し´
-</pre
+      <pre class="flex justify-center items-center text-xs">
+        
+♡  ∩_∩
+ （„• ֊ •„)♡
+┏ • UU • - • - • - • - • - • - • ღ❦ღ┓</pre
       >
       <div class="text-sm text-center my-4">
-        <span class="text-primary">Escapy</span> by
-        <span class="text-secondary">{{ info.author }} ᥫ᭡</span>
+        <span class="text-info">Escapy</span> ツ
+        <span class="text-success">{{ info.author }} ᥫ᭡</span>
       </div>
+      <pre class="flex justify-center items-center text-xs">
+┗ღ❦ღ • - • - • - • - • - • -- •- •  ┛
+      </pre>
     </div>
   </div>
 </template>
@@ -78,22 +78,22 @@ ___________ _________
   import { ref, onMounted, onBeforeMount } from "vue";
   import { fetchInfo } from "@/api";
 
-  import { DEFAULT_THEME } from "@/api/config";
+  import { getTheme, applyTheme } from "@/api/config";
 
   defineProps(["close"]);
 
   // Daisyui themes
   const themes = [
-    "dracula", // Default theme
-
+    "retro",
+    "dracula",
     "light",
+    "black",
     "dark",
     "cupcake",
     "bumblebee",
     "emerald",
     "corporate",
     "synthwave",
-    "retro",
     "valentine",
     "halloween",
     "garden",
@@ -102,7 +102,6 @@ ___________ _________
     "pastel",
     "fantasy",
     "wireframe",
-    "black",
     "luxury",
     "dim",
     "cmyk",
@@ -120,21 +119,16 @@ ___________ _________
     "silk"
   ];
 
-  const currentTheme = ref("dracula");
+  const currentTheme = ref(getTheme());
   const info = ref({});
 
-  // Apply theme to #main
-  const applyTheme = theme => {
-    currentTheme.value = theme;
-    localStorage.setItem("theme", theme);
-
-    document.getElementById("main")?.setAttribute("data-theme", theme);
-  };
+  function setTheme(name) {
+    applyTheme(name);
+    currentTheme.value = name;
+  }
 
   onMounted(async () => {
-    const theme = localStorage.getItem("theme") || DEFAULT_THEME;
-
-    applyTheme(theme);
+    applyTheme(currentTheme.value);
     // fetch info
     info.value = await fetchInfo();
   });

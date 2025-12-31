@@ -1,31 +1,25 @@
 <template>
-  <div class="flex-1 flex items-center justify-center">
-    <div class="card w-full max-w-sm bg-base-100 shadow-xl">
-      <div class="card-body">
-        <h2 class="card-title justify-center">Escapy Login</h2>
+  <div class="min-h-screen flex items-center justify-center bg-base-200 px-4">
+    <div class="w-full max-w-sm space-y-6">
+      <h2 class="text-2xl font-semibold text-center">Escapy Login</h2>
 
-        <form @submit.prevent="login">
-          <div class="form-control mt-4">
-            <input
-              v-model="access_key"
-              type="access_key"
-              placeholder="Access Key"
-              class="input input-bordered focus:outline-none placeholder:opacity-60"
-              required
-            />
-          </div>
+      <form @submit.prevent="login" class="space-y-4">
+        <input
+          v-model="access_key"
+          type="password"
+          placeholder="Access Key (1234)"
+          class="input input-bordered w-full focus:outline-none placeholder:opacity-60"
+          required
+        />
 
-          <div class="form-control mt-3">
-            <button class="btn btn-primary" :disabled="loading">
-              {{ loading ? "Logging in..." : "Login" }}
-            </button>
-          </div>
+        <button class="btn btn-primary w-full" :disabled="loading">
+          {{ loading ? "Logging in..." : "Login" }}
+        </button>
 
-          <p v-if="error" class="text-error mt-2 text-sm">
-            {{ error }}
-          </p>
-        </form>
-      </div>
+        <p v-if="error" class="text-error text-sm text-center">
+          {{ error }}
+        </p>
+      </form>
     </div>
   </div>
 </template>
@@ -46,7 +40,7 @@
       await api.post("/login", {
         access_key: access_key.value
       });
-      // Optional: redirect
+
       window.location.href = "/";
     } catch (err) {
       error.value = err.message || "Login failed";

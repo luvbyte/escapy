@@ -38,7 +38,7 @@
           <!-- Start -->
           <button
             v-if="selectedTask.status_code % 2 === 0"
-            class="btn btn-secondary btn-sm btn-outline w-full font-heading"
+            class="btn btn-primary btn-sm btn-outline w-full font-heading"
             @click="taskCommand('start')"
           >
             START

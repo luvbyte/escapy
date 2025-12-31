@@ -55,7 +55,7 @@ const appendMessage = (message, scroll = false) => {
     case "raw_html":
       $console.append(message.message);
       break;
-  
+
     case "text":
     default:
       $console.append($("<p>").text(message.message));

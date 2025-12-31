@@ -1,5 +1,5 @@
 <template>
-  <div class="card bg-base-200 text-sm">
+  <div class="card bg-base-200 text-sm overflow-y-auto scrollbar-hide">
     <div class="divider m-0">Info</div>
 
     <div class="space-y-2">
@@ -74,6 +74,8 @@
           <span class="font-medium">{{ infoValue }}</span>
         </div>
       </div>
+
+      <div v-for="i in 20">Hi</div>
     </div>
   </div>
 </template>

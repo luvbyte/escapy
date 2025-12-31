@@ -3,8 +3,8 @@
 
   import { connect } from "@/api/client";
   import { healthCheck } from "@/api";
-  
-  import { DEFAULT_THEME } from "@/api/config"
+
+  import { applyTheme, getTheme } from "@/api/config";
 
   const health = ref(null);
 
@@ -16,8 +16,7 @@
   });
 
   onMounted(() => {
-    const theme = localStorage.getItem("theme") || DEFAULT_THEME;
-    document.getElementById("main")?.setAttribute("data-theme", theme);
+    applyTheme(getTheme())
   });
 </script>
 
